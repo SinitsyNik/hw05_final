@@ -9,7 +9,7 @@ from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 from django import forms
 
-from posts.views import POSTS_COUNT
+from yatube.settings import POSTS_COUNT
 
 from ..models import Group, Post, Follow
 

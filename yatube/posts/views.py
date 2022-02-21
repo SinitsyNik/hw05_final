@@ -5,8 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm, CommentForm
 from .models import Post, Group, User, Follow
 
-
-POSTS_COUNT = 10
+from yatube.settings import POSTS_COUNT
 
 
 def index(request):
@@ -44,7 +43,8 @@ def profile(request, username):
 
     following = False
     if request.user.is_authenticated:
-        following = Follow.objects.filter(user=request.user, author=author)
+        following = Follow.objects.filter(
+            user=request.user, author=author).exists()
 
     paginator = Paginator(posts, POSTS_COUNT)
     page_number = request.GET.get('page')
