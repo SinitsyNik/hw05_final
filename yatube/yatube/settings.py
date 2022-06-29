@@ -25,8 +25,14 @@ SECRET_KEY = 'y(m1@y4rd9s@5d11=z0fbvpg3c%s&p-sz&ry7@7=@^19-2%zcy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '[::1]', 'testserver', ]
-
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '[::1]',
+    'testserver',
+    'www.proprogramist.pythonanywhere.com',
+    'proprogramist.pythonanywhere.com',
+]
 
 # Application definition
 
@@ -42,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sorl.thumbnail',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'yatube.urls'
@@ -149,3 +157,7 @@ CACHES = {
 }
 
 POSTS_COUNT = 10
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
